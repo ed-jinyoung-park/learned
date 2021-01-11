@@ -16,6 +16,8 @@
 
 ### [브라우저의 동작원리](./web/브라우저의 동작원리.md)
 
+### [CORS](./web/CORS.md)
+
 ## [Backend](./backend)
 
 ### [Serverless - FaaS](<./backend/Serverless(FaaS)>)
