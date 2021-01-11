@@ -14,7 +14,7 @@
 
 ### [Web Storage와 Cookie](./web/WebStorage와Cookie.md)
 
-### [브라우저의 동작원리](./web/브라우저의 동작원리.md)
+### [브라우저의 동작원리](./web/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%20%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.md)
 
 ### [CORS](./web/CORS.md)
 
