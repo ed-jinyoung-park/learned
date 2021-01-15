@@ -4,7 +4,7 @@
 
 ## [Javascript](./javascript)
 
-### [호이스팅](./javascript/호이스팅.md)
+### [var,let,const](./javascript/var,let,const.md)
 
 ### [얕은복사와 깊은복사](./javascript/얕은복사와깊은복사.md)
 
