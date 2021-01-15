@@ -48,3 +48,6 @@ b = function bb(){
 * 함수 표현식의 경우 변수만 호이스팅되고 함수 할당은 코드 순서대로 이루어진다.
 
 * ``let, const``의 경우 실제로는 호이스팅이 일어나지만 값이 할당되기 전까지 TDZ(temporal dead zone: 임시 사각지대)에 있기 때문에 일어나지 않는 것처럼 처리된다. 따라서 선언 전에 변수를 사용하려고 하면 에러가 난다.
+
+### Reference
+* https://medium.com/@yeon22/javascript-var-let-const%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90-9fab5c264c9c
