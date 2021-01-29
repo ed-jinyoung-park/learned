@@ -49,6 +49,8 @@ HTTP 컨텐츠가 바뀌었는지 검사할 수 있는 태그. 특정 문자열�
 
 
 
+![img](https://goodgid.github.io/assets/img/posts/rest_api_2.png)
+
 ### Reference
 
 * https://web.dev/http-cache/
@@ -56,3 +58,5 @@ HTTP 컨텐츠가 바뀌었는지 검사할 수 있는 태그. 특정 문자열�
 * https://developer.mozilla.org/ko/docs/Web/HTTP/Caching
 
 * https://jjshun.tistory.com/59
+
+* https://goodgid.github.io/REST-API/
