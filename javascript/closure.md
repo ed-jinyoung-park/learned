@@ -57,3 +57,6 @@ a와 c가 할당되어 있지 않다. 변수 a,c가 없으면 스코프체인을
 다음과 같은 경우에 함수가 호출될때마다 counter 값이 증가되어 그 값을 유지할 수 있다.
 
 만약 couter가 increase()안에 선언되어 있을 경우 버튼을 계속 눌러도 counter는 1에서 멈춘다. 매번 새로 0으로 선언,할당되는 꼴이다.
+
+### Reference
+* https://poiemaweb.com/js-closure
