@@ -10,6 +10,8 @@
 
 ### [this](./javascript/this.md)
 
+### [closure](./javascript/closure.md)
+
 ## [Web](./web)
 
 ### [Web Storage와 Cookie](./web/WebStorage와Cookie.md)
