@@ -7,13 +7,14 @@
 * response size가 크면 브라우저와 서버 사이의 많은 왕복이 요구될 수 있다.
 * 페이지 로딩이 길어질 수 있다.
 
-HTTP Cache는 완벽하진 않지만 효율적이고 모든 브라우저에서 제공되며, 작업이 간단하다.
+웹 캐시는 특정 위치에 복사본을 저장하고 동일한 URL의 리소스 요청은 내부에 저장한 파일을 사용하여 빠르게 받아오기 위한 것이다.
 
-보통 200, 301(다른 주소로 이동후 가져옴), 404(Not Found) 상태코드로 온 응답을 캐싱한다.
+웹 캐시는 Browser Cache, Proxy Cache, Gateway Cache가 있다. 그중 Browser Cache는 HTTP Header를 통해 사용할 수 있다.
 
-Cache는 request header와 response header의 조합으로 작동하며, 관련된 header는 다음과 같다.
+관련 태그는 다음과 같다.
 
 * Cache-Control
+
 * ETag
 * Last-Modified
 
@@ -30,14 +31,18 @@ Cache-Control: no-store와 같이 사용한다. 콤마로 구분해서 옵션을
 * public : 공유 캐시에 저장
 * private : 브라우저같은 특정 사용자 환경에만 저장
 * max-age=3600 : 캐시 유효시간 설정
-
 * stale-while-revalidate
+
+
 
 ### ETag
 
 HTTP 컨텐츠가 바뀌었는지 검사할 수 있는 태그. 특정 문자열로 표현되며 ``If-None-Match`` 헤더와 함께 쓰인다. 
 
-서버는 클라이언트에서 받은 ETag를 확인하여 리소스가 같은지 여부를 확인하고, 만약 같다면 304(Not modified) 코드를 반환한다.
+1. 브라우저는 최초 응답 시 받은 Etag 값을  ``If-None-Match`` 헤더에 포함시켜 페이지를 요청한다.
+2. 서버는 요청 파일의 Etag 값을 ``If-Node-Match`` 값과 비교하여 리소스가 같은지 여부를 확인하고, 만약 같다면 304(Not modified) 코드를 반환한다.
+
+3. 브라우저는 응답 코드가 304인 경우 캐시에서 페이지를 로드하고 200이라면 새로 다운받은 후 Etag 값을 갱신한다.
 
 
 
@@ -45,18 +50,21 @@ HTTP 컨텐츠가 바뀌었는지 검사할 수 있는 태그. 특정 문자열�
 
 브라우저가 서버로 요청한 파일의 최종 수정 시간을 알려주는 헤더. 
 
-![The request issued when the cache is empty triggers the resource to be downloaded, with both validator value sent as headers. The cache is then filled.](https://mdn.mozillademos.org/files/13729/Cache1.png)
+1. 브라우저는 최초 응답 시 받은 Last-Modified 값을 ``If-Modified-Since`` 헤더에 포함시켜 페이지를 요청한다.
+2. 서버는 요청 파일의 수정 시간을 ``If-Modified-Since``값과 비교하여 만약 같다면 304(Not modified) 코드를 반환한다.
+3. 브라우저는 응답 코드가 304인 경우 캐시에서 페이지를 로드하고 200이라면 새로 다운받은 후 Modified 값을 갱신한다.
 
 
 
-![img](https://goodgid.github.io/assets/img/posts/rest_api_2.png)
+
+
+
 
 ### Reference
 
 * https://web.dev/http-cache/
 * https://www.zerocho.com/category/HTTP/post/5b594dd3c06fa2001b89feb9
 * https://developer.mozilla.org/ko/docs/Web/HTTP/Caching
-
 * https://jjshun.tistory.com/59
-
 * https://goodgid.github.io/REST-API/
+* https://cyberx.tistory.com/9
