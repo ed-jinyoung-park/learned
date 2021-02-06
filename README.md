@@ -30,6 +30,8 @@
 
 ### [Next.js](./frontend/next-js)
 
+### [React](./frontend/react)
+
 ## [Backend](./backend)
 
 ### [Serverless - FaaS](./backend/Serverless(FaaS))
