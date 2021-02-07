@@ -89,3 +89,7 @@
 * ``"loading"`` : 문서를 불러오는 중
 * ``"interactive"`` : 문서가 완전히 불러짐. DOMContentLoaded 이벤트가 실행되기 바로 직전에 변경됨.
 * ``"complete"`` : 문서를 비롯한 이미지 등의 리소스도 모두 불러짐. load 이벤트가 실행되기 바로 직전에 변경됨.
+
+
+### Reference
+* https://ko.javascript.info/onload-ondomcontentloaded
