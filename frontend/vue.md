@@ -45,3 +45,83 @@
 
 ### Reference
 * https://joshua1988.github.io/vue-camp/
+
+
+
+### 이벤트 수식어
+
+- `.stop` : stopPropatation. 버블링을 막는다.
+- `.prevent` : default event를 막는다 (form, a tag)
+- `.capture` : 이벤트 캡처링을 사용한다. 
+- `.self : ` 엘리먼트 자체인 경우에만 이벤트를 트리거.
+- `.once` : 한 번만 트리거
+- `.passive` : 메인스레드를 기다리지 않고 컴포지트 스레드에서 바로 composite를 수행 ( layout, paint를 안거치고 composite)
+
+
+
+### slot
+
+컴포넌트 안의 하위 컴포넌트 마크업을 확장하여 컴포넌트를 재사용할 수 있는 기능.
+
+컴포넌트 안에 슬롯으로 선언된 부분을 바꿔가면서 컴포넌트의 재사용성을 높일 수 있다.
+
+
+
+#### Named Slot
+
+이름이 있는 슬롯으로 여러개의 슬롯을 사용할때 유용합니다.
+
+```jsx
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+// base-layout.vue
+
+```
+
+```
+<base-layout>
+  <template v-slot:header>
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <template v-slot:footer>
+    <p>Here's some contact info</p>
+  </template>
+</base-layout>
+```
+
+
+
+#### Scoped Slot
+
+슬롯에 필요한 데이터를 가져올때 사용합니다.
+
+```jsx
+<span>
+  <slot v-bind:user="user">
+    {{ user.lastName }}
+  </slot>
+</span>
+
+```
+
+```vue
+<current-user>
+  <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
+</current-user>
+```
+
