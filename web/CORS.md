@@ -87,3 +87,26 @@ https://jinyoung.kr라는 URL이 있을 때,
 
 * 클라이언트 : web server에서 우회해서 요청을 날린다.
 * 서버 : ``Access-Control-Allow-Origin``을 설정해준다. ex) express - cors 미들웨어 사용 
+
+
+
+### JSONP
+
+JSON with padding. ``script`` 요소는 외부 출처 요청이 허용된다는 특징을 이용한 CORS 해결 방법
+
+아래와 같이 httprequest를 보내는 대신 script src에 해당 url을 넣고 callback함수로 받아온 데이터를 파싱하여 최종적으로 JSON 데이터를 받을 수 있다.
+
+```js
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'http://server.example.com/Users/1234', true);
+xmlhttp.onload = function () {
+  console.log('Retrieved Data: ' + xmlhttp.responseText);
+};
+xmlhttp.send(); // -> 교차 출처 요청 차단
+```
+
+```html
+<script type="application/javascript"
+        src="http://server.example.com/Users/1234?callback=parseResponse">
+</script>
+```
